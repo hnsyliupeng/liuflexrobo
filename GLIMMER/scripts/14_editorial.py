@@ -6,8 +6,8 @@ import imageio_ffmpeg
 
 FF = imageio_ffmpeg.get_ffmpeg_exe()
 
-def encode(frames_dir, out_mp4, fps=24):
-    cmd = [FF, "-y", "-framerate", str(fps), "-i", os.path.join(frames_dir, "frame_%04d.jpg"),
+def encode(frames_dir, out_mp4, fps=24, start=1):
+    cmd = [FF, "-y", "-framerate", str(fps), "-start_number", str(start), "-i", os.path.join(frames_dir, "frame_%04d.jpg"),
            "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", "-vf", "scale=trunc(iw/2)*2:trunc(ih/2)*2", out_mp4]
     subprocess.run(cmd, check=True, capture_output=True)
     print("ENCODED", out_mp4, flush=True)
@@ -24,7 +24,7 @@ def main():
         if not os.path.isdir(d):
             print("MISSING", d); continue
         mp4 = os.path.join(ed, "%s_%s.mp4" % (shot, tag))
-        encode(d, mp4)
+        encode(d, mp4, start=G.SHOTS[shot][0])
         clips.append(mp4)
     # concat
     lst = os.path.join(ed, "concat_%s.txt" % tag)

@@ -34,10 +34,10 @@ def main():
     key(bg.inputs["Color"], 240, (0.030, 0.055, 0.120, 1))
     key(bg.inputs["Strength"], 240, 0.30)
     key(bg.inputs["Color"], 264, (0.012, 0.024, 0.060, 1))
-    key(bg.inputs["Strength"], 264, 0.45)
+    key(bg.inputs["Strength"], 264, 0.55)
     # STATE C firefly night
     key(bg.inputs["Color"], 720, (0.010, 0.020, 0.052, 1))
-    key(bg.inputs["Strength"], 720, 0.42)
+    key(bg.inputs["Strength"], 720, 0.52)
 
     # ---------------- sun (dusk) + moon (night) ----------------
     sun = bpy.data.objects.new("LIGHT_sun", bpy.data.lights.new("LIGHT_sun", "SUN"))
@@ -101,7 +101,7 @@ def main():
     # ---------------- night rim / fill ----------------
     rim = bpy.data.objects.new("LIGHT_night_rim", bpy.data.lights.new("LIGHT_night_rim", "AREA"))
     lc.objects.link(rim)
-    rim.location = (-2.5, 9.5, 4.5)
+    rim.location = (-4.5, 7.5, 5.2)
     d = Vector((0.2, 4.0, 0.5)) - rim.location
     rim.rotation_euler = d.to_track_quat("-Z", "Y").to_euler()
     rim.data.size = 6.0
@@ -111,7 +111,7 @@ def main():
     rim.data.energy = 55; rim.data.keyframe_insert("energy", frame=720)
     fill = bpy.data.objects.new("LIGHT_night_fill", bpy.data.lights.new("LIGHT_night_fill", "AREA"))
     lc.objects.link(fill)
-    fill.location = (2.6, 0.6, 2.6)
+    fill.location = (-1.9, 1.4, 2.3)
     d = Vector((0.2, 4.0, 0.4)) - fill.location
     fill.rotation_euler = d.to_track_quat("-Z", "Y").to_euler()
     fill.data.size = 4.0
@@ -119,6 +119,18 @@ def main():
     fill.data.energy = 0; fill.data.keyframe_insert("energy", frame=250)
     fill.data.energy = 18; fill.data.keyframe_insert("energy", frame=290)
     fill.data.energy = 16; fill.data.keyframe_insert("energy", frame=720)
+
+    # ---------------- dedicated cool character key for night act ----------------
+    rk = bpy.data.objects.new("LIGHT_robot_key", bpy.data.lights.new("LIGHT_robot_key", "AREA"))
+    lc.objects.link(rk)
+    rk.location = (-1.4, 2.0, 2.0)
+    d = Vector((0.2, 4.0, 0.42)) - rk.location
+    rk.rotation_euler = d.to_track_quat("-Z", "Y").to_euler()
+    rk.data.size = 2.5
+    rk.data.color = (0.42, 0.55, 0.95)
+    rk.data.energy = 0; rk.data.keyframe_insert("energy", frame=240)
+    rk.data.energy = 90; rk.data.keyframe_insert("energy", frame=280)
+    rk.data.energy = 80; rk.data.keyframe_insert("energy", frame=720)
 
     # ---------------- mist density keys ----------------
     mm = bpy.data.materials.get("M_Mist")

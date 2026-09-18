@@ -41,6 +41,36 @@ def main():
         gain.inputs[1].default_value = 4.0
         nt.links.new(mul.outputs[0], gain.inputs[0])
         nt.links.new(gain.outputs[0], em.inputs["Strength"])
+    # firefly: tame emission + warm practical light (no clipping, real local illumination)
+    mg = bpy.data.materials.get("M_Firefly_Glow")
+    if mg:
+        muln = next((n for n in mg.node_tree.nodes if n.bl_idname == "ShaderNodeMath" and n.operation == "MULTIPLY"), None)
+        if muln: muln.inputs[1].default_value = 6.0
+    root = bpy.data.objects.get("FX_001_ctrl")
+    if root:
+        old = bpy.data.objects.get("LIGHT_ff_practical")
+        if old: bpy.data.objects.remove(old, do_unlink=True)
+        pl = bpy.data.objects.new("LIGHT_ff_practical", bpy.data.lights.new("LIGHT_ff_practical", "POINT"))
+        pl.data.color = (0.75, 0.9, 0.25)
+        pl.data.shadow_soft_size = 0.02
+        bpy.data.collections["FX_fireflies"].objects.link(pl)
+        pl.parent = root
+        pl.location = (0.0, -0.020, 0.020)
+        pl.data.energy = 2.0
+        fc = pl.data.driver_add("energy")
+        d = fc.driver; d.type = "SCRIPTED"
+        v = d.variables.new(); v.name = "g"; v.type = "SINGLE_PROP"
+        v.targets[0].id = root; v.targets[0].data_path = '["GLOW"]'
+        d.expression = "g * 4.0"
+        # cap GLOW keys at 1.0
+        if root.animation_data and root.animation_data.action:
+            for fcu in root.animation_data.action.fcurves:
+                if fcu.data_path == '["GLOW"]':
+                    for kp in fcu.keyframe_points:
+                        if kp.co.y > 1.0: kp.co.y = 1.0
+    if root:
+        root.scale = (0.45, 0.45, 0.45)
+    G.ensure_slots()
     G.save(MASTER)
     print("LOOKFIX_DONE fixed=%d" % fixed)
 

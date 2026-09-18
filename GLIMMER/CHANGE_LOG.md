@@ -11,3 +11,5 @@
 - v0.8 cycle-1 fixes: ensure_slots self-heal; fern droop+narrower pinnae; ground-only scatter height;
   S1 camera pulled to 12 m; dusk sun/shaft rebalance; night fill/rim up; eye gain 4.0.
 - v0.9 720-frame preview render (480x270 8spp OIDN) + editorial assembly — running.
+- v1.0 cycle-2: night exposure uplift; arm reach numeric solve (09b); firefly scale/emission/practical-light
+  rework; S9 macro cam reframe; firefly abdomen orientation at landing; night shots re-rendered.

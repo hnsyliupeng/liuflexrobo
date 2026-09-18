@@ -8,7 +8,7 @@ MASTER = G.master_path()
 S = G.SHOTS
 def lf(shot, f): return S[shot][0] + (f - 1)
 
-HAND_TARGET = Vector((-0.13, 3.42, 0.505))
+HAND_TARGET = Vector((-0.021, 3.956, 0.409))
 
 # (global_frame, position, glow)
 PATH = [
@@ -29,16 +29,16 @@ PATH = [
     (lf("SHOT_007", 54),  (0.62, 4.35, 0.60), 1.0),
     (lf("SHOT_007", 72),  (0.40, 3.85, 0.64), 1.0),
     (lf("SHOT_008", 18),  (0.05, 3.55, 0.62), 1.0),
-    (lf("SHOT_008", 45),  (-0.10, 3.38, 0.60), 1.0),
-    (lf("SHOT_008", 72),  (-0.13, 3.34, 0.575), 1.0),
-    (lf("SHOT_009", 18),  (-0.17, 3.30, 0.55), 1.0),
-    (lf("SHOT_009", 30),  (-0.145, 3.375, 0.525), 1.0),
+    (lf("SHOT_008", 45),  (-0.05, 3.83, 0.48), 1.0),
+    (lf("SHOT_008", 72),  (-0.028, 3.895, 0.455), 1.0),
+    (lf("SHOT_009", 18),  (-0.045, 3.880, 0.430), 1.0),
+    (lf("SHOT_009", 30),  (-0.030, 3.930, 0.420), 1.0),
     (lf("SHOT_009", 40),  HAND_TARGET[:], 1.15),
     (lf("SHOT_009", 60),  (HAND_TARGET + Vector((0.002, 0, 0.001)))[:], 1.2),
     (lf("SHOT_010", 1),   (HAND_TARGET + Vector((0.002, 0, 0.001)))[:], 1.2),
-    (lf("SHOT_010", 24),  (-0.05, 3.55, 0.85), 1.1),
-    (lf("SHOT_010", 60),  (0.10, 3.90, 1.15), 1.0),
-    (lf("SHOT_010", 108), (0.20, 4.30, 1.45), 1.0),
+    (lf("SHOT_010", 24),  (0.00, 3.93, 0.85), 1.0),
+    (lf("SHOT_010", 60),  (0.15, 4.10, 1.15), 1.0),
+    (lf("SHOT_010", 108), (0.20, 4.40, 1.45), 1.0),
 ]
 
 def main():
@@ -69,6 +69,12 @@ def main():
             v = d.variables.new(); v.name = "g"; v.type = "SINGLE_PROP"
             v.targets[0].id = root; v.targets[0].data_path = '["GLOW"]'
             d.expression = "g"
+    # orient abdomen toward S9 camera at landing
+    root.rotation_mode = "XYZ"
+    for (f, rz) in ((lf("SHOT_009", 30), 0.0), (lf("SHOT_009", 40), 2.50),
+                    (lf("SHOT_009", 60), 2.50), (lf("SHOT_010", 1), 2.50), (lf("SHOT_010", 24), 0.0)):
+        root.rotation_euler = (0, 0, rz)
+        root.keyframe_insert("rotation_euler", frame=f)
     # wing flap: linear ramp prop
     if root.animation_data:
         act = root.animation_data.action
