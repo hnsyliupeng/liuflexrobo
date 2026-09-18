@@ -24,3 +24,10 @@ LAST_FAILED_COMMAND: 11_lighting v1 (keyframe_insert path spans ID blocks) — f
 LATEST_PREVIEW_MOVIE: (rendering; editorial assembly next)
 CURRENT_RUBRIC: pending cycle-1 review
 NEXT_ACTIONS: render 720-frame preview @480x270 → assemble 30s → review → fix → re-render affected → package
+
+## 2026-09-18 FINAL STATE
+- v1.0 COMPLETE: 3 preview cycles, locked params (PARAMETER_LOCK.md), coldstart 11/11,
+  editorial 30.00 s, 4x 1080p reps (smooth+tip-subdiv), FINAL_DELIVERY tree + zip (66 files, 14.2 MB).
+- Local commits: 3a3d40f, ecfdb62, 805c8e3 (+tip fix amend pending). GitHub push BLOCKED:
+  GH token invalid since ~10:00Z ("could not read Username"); user must reconnect GitHub in Arena;
+  then: git push origin arena/01a0afae-liuflexrobo
