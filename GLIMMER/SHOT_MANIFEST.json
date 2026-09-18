@@ -1,0 +1,23 @@
+{
+  "film": "GLIMMER",
+  "fps": 24,
+  "total_editorial_frames": 720,
+  "duration_sec": 30.0,
+  "resolution": [1920, 1080],
+  "aspect": "16:9",
+  "color_management": "AgX (Blender 4.5 default view transform)",
+  "shots": [
+    {"id": "SHOT_001", "global_frames": [1, 72],    "local_frames": 72,  "dur_sec": 3.0, "size": "WS",  "lens_mm": 28, "camera": "very slow dolly in", "light_state": "A"},
+    {"id": "SHOT_002", "global_frames": [73, 144],  "local_frames": 72,  "dur_sec": 3.0, "size": "FS",  "lens_mm": 40, "camera": "locked", "light_state": "A"},
+    {"id": "SHOT_003", "global_frames": [145, 192], "local_frames": 48,  "dur_sec": 2.0, "size": "CU",  "lens_mm": 65, "camera": "low tracking follow", "light_state": "A"},
+    {"id": "SHOT_004", "global_frames": [193, 264], "local_frames": 72,  "dur_sec": 3.0, "size": "MS",  "lens_mm": 50, "camera": "slow dolly out", "light_state": "B"},
+    {"id": "SHOT_005", "global_frames": [265, 336], "local_frames": 72,  "dur_sec": 3.0, "size": "OTS", "lens_mm": 55, "camera": "static", "light_state": "C"},
+    {"id": "SHOT_006", "global_frames": [337, 408], "local_frames": 72,  "dur_sec": 3.0, "size": "CU",  "lens_mm": 75, "camera": "subtle push in", "light_state": "C"},
+    {"id": "SHOT_007", "global_frames": [409, 480], "local_frames": 72,  "dur_sec": 3.0, "size": "MCU", "lens_mm": 50, "camera": "small orbit 15-30 deg", "light_state": "C"},
+    {"id": "SHOT_008", "global_frames": [481, 552], "local_frames": 72,  "dur_sec": 3.0, "size": "MS",  "lens_mm": 55, "camera": "static", "light_state": "C"},
+    {"id": "SHOT_009", "global_frames": [553, 612], "local_frames": 60,  "dur_sec": 2.5, "size": "ECU", "lens_mm": 90, "camera": "very slow macro push", "light_state": "C"},
+    {"id": "SHOT_010", "global_frames": [613, 720], "local_frames": 108, "dur_sec": 4.5, "size": "WS",  "lens_mm": 32, "camera": "crane up + pull back", "light_state": "C"}
+  ],
+  "editorial_order": ["SHOT_001","SHOT_002","SHOT_003","SHOT_004","SHOT_005","SHOT_006","SHOT_007","SHOT_008","SHOT_009","SHOT_010"],
+  "audio": "none (no background music by design)"
+}
