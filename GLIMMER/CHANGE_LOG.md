@@ -13,3 +13,6 @@
 - v0.9 720-frame preview render (480x270 8spp OIDN) + editorial assembly — running.
 - v1.0 cycle-2: night exposure uplift; arm reach numeric solve (09b); firefly scale/emission/practical-light
   rework; S9 macro cam reframe; firefly abdomen orientation at landing; night shots re-rendered.
+- v1.0 FINAL: PARAMETER_LOCK.md + FINAL_REPORT.md added; night lighting locked (robot_key 26->22 W @1.1 m);
+  arm reach bone-tail solve err 6 mm; S8 SE 3/4 cam; S9 macro + abdomen yaw; 3 preview cycles completed;
+  coldstart 11/11 PASS; editorial 30.00 s re-verified.

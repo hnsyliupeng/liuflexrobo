@@ -123,14 +123,14 @@ def main():
     # ---------------- dedicated cool character key for night act ----------------
     rk = bpy.data.objects.new("LIGHT_robot_key", bpy.data.lights.new("LIGHT_robot_key", "AREA"))
     lc.objects.link(rk)
-    rk.location = (-1.4, 2.0, 2.0)
+    rk.location = (-1.0, 2.9, 1.35)
     d = Vector((0.2, 4.0, 0.42)) - rk.location
     rk.rotation_euler = d.to_track_quat("-Z", "Y").to_euler()
-    rk.data.size = 2.5
+    rk.data.size = 1.4
     rk.data.color = (0.42, 0.55, 0.95)
     rk.data.energy = 0; rk.data.keyframe_insert("energy", frame=240)
-    rk.data.energy = 90; rk.data.keyframe_insert("energy", frame=280)
-    rk.data.energy = 80; rk.data.keyframe_insert("energy", frame=720)
+    rk.data.energy = 26; rk.data.keyframe_insert("energy", frame=280)
+    rk.data.energy = 22; rk.data.keyframe_insert("energy", frame=720)
 
     # ---------------- mist density keys ----------------
     mm = bpy.data.materials.get("M_Mist")

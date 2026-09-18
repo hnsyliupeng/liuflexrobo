@@ -36,3 +36,8 @@ Final-quality representative frames: `python scripts/13_final_render.py`
 Parameters / materials / model structure / animation timing are locked and delivered with
 low-res validation renders + assembled 30 s preview film. A full 720-frame 1080p final render
 is NOT included (script 13 reproduces it: 1920×1080, 64 spp, OIDN).
+
+## Locks & reports
+- PARAMETER_LOCK.md — all locked render/lighting/camera/anim parameters
+- FINAL_REPORT.md — evidence-only delivery report
+- scripts/17_smooth_pass.py — smooth-by-angle pass (43 meshes)

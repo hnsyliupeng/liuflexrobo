@@ -28,7 +28,7 @@ def main():
     cp(os.path.join(G.ROOT, "reference"), os.path.join(FD, "reference"))
     for doc in ("README.md", "STORY_LOCK.md", "SHOT_MANIFEST.json", "ASSET_MANIFEST.md",
                 "PRODUCTION_PLAN.md", "SHOT_STATUS.md", "ISSUE_LOG.md", "PERFORMANCE_LOG.md",
-                "TASK_STATE.md", "CHANGE_LOG.md"):
+                "TASK_STATE.md", "CHANGE_LOG.md", "PARAMETER_LOCK.md", "FINAL_REPORT.md"):
         p = os.path.join(G.ROOT, doc)
         if os.path.exists(p):
             cp(p, os.path.join(FD, doc))

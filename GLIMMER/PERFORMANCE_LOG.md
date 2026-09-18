@@ -16,3 +16,6 @@ Volumetrics: single global scatter volume, density 0.009–0.020 (keyframed by l
 volume_step_rate 2.0, volume_bounces 0 — cheap, no geometry hiding.
 
 Memory: master.blend ≈ 4.4 MB (procedural materials + linked duplicates); render RSS ≈ 1.3 GB.
+- cycle-2a night 528f: 52 min (5.9 s/f avg incl. volstep4); cycle-2b 528f: 55 min; cycle-3 locked 528f: 56 min.
+- 1080p rep frames SPP32: see renders/final_render.log (4 frames).
+- coldstart 16: 40 s end-to-end (11 checks + 4 reps + probe).

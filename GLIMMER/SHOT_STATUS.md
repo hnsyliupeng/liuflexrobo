@@ -2,7 +2,7 @@
 
 | shot | frames | layout | blocking | anim polish | light | preview r1 | notes |
 |---|---|---|---|---|---|---|---|
-| SHOT_001 | 1-72 | ✓ | ✓ | ✓ walk+bob+antenna lag | A | OK (cycle1) | tiny-robot read achieved |
+| SHOT_001 | 1-72 | ✓ | ✓ | ✓ walk+bob+antenna lag | A | OK (locked c3) | tiny-robot read achieved |
 | SHOT_002 | 73-144 | ✓ | ✓ | ✓ stop/settle/head-scan | A | OK (cycle1/2) | log re-placed west |
 | SHOT_003 | 145-192 | ✓ | ✓ | ✓ tread CU + twig break | A | OK (cycle1/2) | |
 | SHOT_004 | 193-264 | ✓ | ✓ | ✓ sit + eye dim 1→0.25 | B | OK (cycle1/2) | exposure uplifted v3 |
