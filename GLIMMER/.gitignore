@@ -1,0 +1,8 @@
+venv_prod/
+xlibs_prod/
+caches/
+*.blend1
+FINAL_DELIVERY/
+GLIMMER_FINAL_DELIVERY.zip
+renders/preview_render.log
+renders/PREV_DONE.txt
